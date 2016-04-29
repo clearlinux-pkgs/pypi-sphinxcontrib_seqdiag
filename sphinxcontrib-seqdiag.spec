@@ -4,7 +4,7 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 0.8.5
-Release  : 6
+Release  : 7
 URL      : https://pypi.python.org/packages/source/s/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
 Source0  : https://pypi.python.org/packages/source/s/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
 Summary  : Sphinx "seqdiag" extension
