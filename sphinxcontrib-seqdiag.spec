@@ -4,13 +4,16 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 0.8.5
-Release  : 14
-URL      : https://pypi.python.org/packages/source/s/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
-Source0  : https://pypi.python.org/packages/source/s/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
+Release  : 15
+URL      : http://pypi.debian.net/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
+Source0  : http://pypi.debian.net/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
 Summary  : Sphinx "seqdiag" extension
 Group    : Development/Tools
 License  : BSD-2-Clause
 Requires: sphinxcontrib-seqdiag-python
+Requires: Sphinx
+Requires: blockdiag
+Requires: seqdiag
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
@@ -18,11 +21,8 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-=====================
 sphinxcontrib-seqdiag
-=====================
-.. image:: https://travis-ci.org/blockdiag/sphinxcontrib-seqdiag.svg?branch=master
-:target: https://travis-ci.org/blockdiag/sphinxcontrib-seqdiag
+        =====================
 
 %package python
 Summary: python components for the sphinxcontrib-seqdiag package.
@@ -36,20 +36,27 @@ python components for the sphinxcontrib-seqdiag package.
 %setup -q -n sphinxcontrib-seqdiag-0.8.5
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484576106
+export SOURCE_DATE_EPOCH=1503080842
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1484576106
+export SOURCE_DATE_EPOCH=1503080842
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
