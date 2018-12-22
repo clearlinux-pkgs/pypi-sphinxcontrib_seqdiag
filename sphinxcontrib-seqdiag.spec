@@ -4,32 +4,47 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 0.8.5
-Release  : 15
-URL      : http://pypi.debian.net/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
-Source0  : http://pypi.debian.net/sphinxcontrib-seqdiag/sphinxcontrib-seqdiag-0.8.5.tar.gz
+Release  : 16
+URL      : https://files.pythonhosted.org/packages/10/59/5f746c6fe8a83ed7451b59e7787080adad8850a8a04d610713466fca3bca/sphinxcontrib-seqdiag-0.8.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/10/59/5f746c6fe8a83ed7451b59e7787080adad8850a8a04d610713466fca3bca/sphinxcontrib-seqdiag-0.8.5.tar.gz
 Summary  : Sphinx "seqdiag" extension
 Group    : Development/Tools
 License  : BSD-2-Clause
-Requires: sphinxcontrib-seqdiag-python
+Requires: sphinxcontrib-seqdiag-license = %{version}-%{release}
+Requires: sphinxcontrib-seqdiag-python = %{version}-%{release}
+Requires: sphinxcontrib-seqdiag-python3 = %{version}-%{release}
 Requires: Sphinx
 Requires: blockdiag
-Requires: seqdiag
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python-dev
-BuildRequires : python3-dev
-BuildRequires : setuptools
+BuildRequires : buildreq-distutils3
 
 %description
 sphinxcontrib-seqdiag
         =====================
 
+%package license
+Summary: license components for the sphinxcontrib-seqdiag package.
+Group: Default
+
+%description license
+license components for the sphinxcontrib-seqdiag package.
+
+
 %package python
 Summary: python components for the sphinxcontrib-seqdiag package.
 Group: Default
+Requires: sphinxcontrib-seqdiag-python3 = %{version}-%{release}
 
 %description python
 python components for the sphinxcontrib-seqdiag package.
+
+
+%package python3
+Summary: python3 components for the sphinxcontrib-seqdiag package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the sphinxcontrib-seqdiag package.
 
 
 %prep
@@ -40,15 +55,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1503080842
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1545509068
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1503080842
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/package-licenses/sphinxcontrib-seqdiag
+cp LICENSE %{buildroot}/usr/share/package-licenses/sphinxcontrib-seqdiag/LICENSE
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -56,7 +71,13 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/sphinxcontrib-seqdiag/LICENSE
+
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
