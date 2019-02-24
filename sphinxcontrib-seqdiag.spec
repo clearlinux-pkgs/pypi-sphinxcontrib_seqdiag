@@ -4,7 +4,7 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 0.8.5
-Release  : 20
+Release  : 21
 URL      : https://files.pythonhosted.org/packages/10/59/5f746c6fe8a83ed7451b59e7787080adad8850a8a04d610713466fca3bca/sphinxcontrib-seqdiag-0.8.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/10/59/5f746c6fe8a83ed7451b59e7787080adad8850a8a04d610713466fca3bca/sphinxcontrib-seqdiag-0.8.5.tar.gz
 Summary  : Sphinx "seqdiag" extension
@@ -19,8 +19,11 @@ Requires: seqdiag
 BuildRequires : buildreq-distutils3
 
 %description
+=====================
 sphinxcontrib-seqdiag
-        =====================
+=====================
+.. image:: https://travis-ci.org/blockdiag/sphinxcontrib-seqdiag.svg?branch=master
+:target: https://travis-ci.org/blockdiag/sphinxcontrib-seqdiag
 
 %package license
 Summary: license components for the sphinxcontrib-seqdiag package.
@@ -56,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545677763
+export SOURCE_DATE_EPOCH=1551038211
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
