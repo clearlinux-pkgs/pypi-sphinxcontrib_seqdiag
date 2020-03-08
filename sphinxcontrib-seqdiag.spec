@@ -4,7 +4,7 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 2.0.0
-Release  : 28
+Release  : 29
 URL      : https://files.pythonhosted.org/packages/ed/35/2840fc985760ea5dd170b5e08a20cdb681a3e53431861e8190fa3adbfa48/sphinxcontrib-seqdiag-2.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ed/35/2840fc985760ea5dd170b5e08a20cdb681a3e53431861e8190fa3adbfa48/sphinxcontrib-seqdiag-2.0.0.tar.gz
 Summary  : Sphinx "seqdiag" extension
@@ -22,36 +22,8 @@ BuildRequires : buildreq-distutils3
 BuildRequires : seqdiag
 
 %description
-=====================
 sphinxcontrib-seqdiag
-=====================
-
-.. image:: https://travis-ci.org/blockdiag/sphinxcontrib-seqdiag.svg?branch=master
-   :target: https://travis-ci.org/blockdiag/sphinxcontrib-seqdiag
-
-.. image:: https://coveralls.io/repos/blockdiag/sphinxcontrib-seqdiag/badge.png?branch=master
-   :target: https://coveralls.io/r/blockdiag/sphinxcontrib-seqdiag?branch=master
-
-.. image:: https://codeclimate.com/github/blockdiag/sphinxcontrib-seqdiag/badges/gpa.svg
-   :target: https://codeclimate.com/github/blockdiag/sphinxcontrib-seqdiag
-
-A sphinx extension for embedding sequence diagram using seqdiag_.
-
-This extension enables you to insert sequence diagrams into your document.
-Following code is an example::
-
-   .. seqdiag::
-
-      seqdiag {
-        browser => webserver => database;
-      }
-
-.. _seqdiag: http://bitbucket.org/blockdiag/seqdiag/
-
-
-For more details, see `online documentation`_ at http://blockdiag.com/.
-
-.. _online documentation: http://blockdiag.com/en/seqdiag/sphinxcontrib.html
+        =====================
 
 %package license
 Summary: license components for the sphinxcontrib-seqdiag package.
@@ -74,7 +46,10 @@ python components for the sphinxcontrib-seqdiag package.
 Summary: python3 components for the sphinxcontrib-seqdiag package.
 Group: Default
 Requires: python3-core
-Provides: pypi(sphinxcontrib-seqdiag)
+Provides: pypi(sphinxcontrib_seqdiag)
+Requires: pypi(blockdiag)
+Requires: pypi(seqdiag)
+Requires: pypi(sphinx)
 
 %description python3
 python3 components for the sphinxcontrib-seqdiag package.
@@ -89,8 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582919019
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583697529
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
