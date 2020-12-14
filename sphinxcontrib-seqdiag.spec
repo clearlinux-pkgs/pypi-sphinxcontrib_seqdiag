@@ -4,7 +4,7 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 2.0.0
-Release  : 32
+Release  : 33
 URL      : https://files.pythonhosted.org/packages/ed/35/2840fc985760ea5dd170b5e08a20cdb681a3e53431861e8190fa3adbfa48/sphinxcontrib-seqdiag-2.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ed/35/2840fc985760ea5dd170b5e08a20cdb681a3e53431861e8190fa3adbfa48/sphinxcontrib-seqdiag-2.0.0.tar.gz
 Summary  : Sphinx "seqdiag" extension
