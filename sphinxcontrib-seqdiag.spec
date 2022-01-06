@@ -4,7 +4,7 @@
 #
 Name     : sphinxcontrib-seqdiag
 Version  : 3.0.0
-Release  : 44
+Release  : 45
 URL      : https://files.pythonhosted.org/packages/9d/e6/5430aa6d8750337e14555d94bf9fac5ae7e1f0ac9198cd0c2c59a2e226b7/sphinxcontrib-seqdiag-3.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/9d/e6/5430aa6d8750337e14555d94bf9fac5ae7e1f0ac9198cd0c2c59a2e226b7/sphinxcontrib-seqdiag-3.0.0.tar.gz
 Summary  : Sphinx "seqdiag" extension
@@ -64,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638830160
+export SOURCE_DATE_EPOCH=1641428183
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
